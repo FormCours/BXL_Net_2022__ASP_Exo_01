@@ -1,0 +1,21 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Model.Name <span class="fst-italic fw-light">(@Model.Reference)</span></h1>
+<p>@Model.Description</p>
+
+<p>
+@if (Model.Discount is null)
+{
+    <span>@Model.Price &euro;</span>
+}
+else
+{
+    <span class="text-decoration-line-through">@Model.Price &euro;</span>
+    <span>@Model.PriceDiscounted &euro;</span>
+    <span class="text-danger">(- @Model.Discount %)</span>
+}
+</p>

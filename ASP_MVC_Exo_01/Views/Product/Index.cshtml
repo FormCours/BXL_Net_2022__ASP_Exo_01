@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+
+@*
+Sans le mecanisme des "using" qui est présent dans le fichier "_ViewImport.cshtml" ↓
+@model System.Collections.Generic.IEnumerable<ASP_MVC_Exo_01.Models.Product>
+*@
+
+@{
+    ViewData["Title"] = "Liste de produit";
+}
+
+<h1>Liste de produit : </h1>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Description</td>
+                @* Tag Helper *@
+                <td>
+                    <a asp-controller="Product" asp-action="Detail" asp-route-id="@p.Id"
+                   class="btn btn-outline-dark">Detail</a>
+                </td>
+                @* Html Helper *@
+                @*
+                <td>
+                    @Html.ActionLink("Detail", "Detail", "Product", new { Id= p.Id}, new { @class="btn btn-outline-dark" })
+                </td>
+                *@
+            </tr>
+        }
+    </tbody>
+</table>

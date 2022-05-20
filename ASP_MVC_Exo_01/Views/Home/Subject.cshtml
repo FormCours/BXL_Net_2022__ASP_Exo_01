@@ -1,0 +1,11 @@
+﻿@{
+    string firstname =ViewData["Firstname"]?.ToString() ?? "";
+    string lastname = ViewData["Lastname"]?.ToString() ?? "Une personne";
+
+    ViewData["Title"] = $"Présentation de {firstname} {lastname}";
+}
+
+<h1>@firstname @lastname</h1>
+<p>Della Duck est un personnage de fiction de l'univers des canards de Disney créé par les studios Disney. Cette cane anthropomorphe est la mère des triplés Riri, Fifi et Loulou et la sœur jumelle de Donald.</p>
+
+<img class="img-fluid rounded" src="~/images/della_duck.jpg" alt="Photo de @firstname @lastname" />
