@@ -7,7 +7,7 @@ namespace ASP_MVC_Exo_01.Controllers
     {
 
         #region Static Data
-        private IEnumerable<Product> _Products = new List<Product>()
+        private static IEnumerable<Product> _Products = new List<Product>()
         {
             new Product()
             {
